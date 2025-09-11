@@ -149,10 +149,10 @@ You can reuse your SSH connection parameters to log in automatically:
 
 ```sh
 # Open an interactive SSH session to the host
-nix run --impure .#nixosConfigurations.your-host.config.lollypops.ssh.login
+nix run --impure .#nixosConfigurations.your-host.config.lollypops.deployment.ssh.login
 
 # Run a command in the remote host, as sudo if enabled
-nix run --impure .#nixosConfigurations.your-host.config.lollypops.ssh.run -- whoami
+nix run --impure .#nixosConfigurations.your-host.config.lollypops.deployment.ssh.run -- whoami
 ```
 
 Notice that `--impure` is only required if your local and remote hosts have
@@ -233,7 +233,7 @@ configure... you guessed it, secrets.
 ### Deployment
 
 Specify how and where to deploy. The default values may be sufficient here in
-a lot of cases. 
+a lot of cases.
 
 ```nix
 lollypops.deployment = {
